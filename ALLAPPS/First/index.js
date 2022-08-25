@@ -3,7 +3,7 @@ import React from 'react'
 import {dataApp} from '../../datas/first'
 import RenderItem from './components/RenderItem'
 
-const index = () => {
+const Index = () => {
   return (
     <View >
       <FlatList
@@ -15,6 +15,6 @@ const index = () => {
   )
 }
 
-export default index
+export default Index
 
 const styles = StyleSheet.create({})
