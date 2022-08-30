@@ -1,46 +1,61 @@
-import { StyleSheet, Text, View, FlatList, Button } from 'react-native'
+import { Text, FlatList, Button, ActivityIndicator } from 'react-native'
 import React from 'react'
-import {news} from '../../datas/news'
+
 import ItemNews from './components/ItemNews'
 import { useState, useEffect } from 'react'
 import { apiNews } from './function/api'
+
+import RenderEmptyComponent from './components/RenderEmptyComponent'
+
+
 
 const NewsScreen = () => {
 
 const [getNews, setNews] = useState([])
 
-/* gestion de la pagination */
-const [getPage , setPage] = useState(1)
 
-const initNews = async () => {
-    /* Chargement de mon 'api' */
-    const articles = await apiNews(getPage) ;
-    setNews(articles)
+const [waiting , setWaiting] = useState(false)/* Gestion du 'waiting' */
+
+
+const [getPage , setPage] = useState() /* gestion de la pagination */
+
+const loadNews = async () => {
+   
+const articles = await apiNews(getPage) ;  /* Chargement de mon 'api' */
+    setWaiting(true)
+    setTimeout(() => {
+                     setNews([...getNews, ...articles])
+                     setWaiting(false)
+                }, 2000)
   }
 
-/* Chargement load more */
-const nextPage = async () => {
+
+const nextPage = async () => { /* Chargement load more */
   setPage( getPage + 1 )
-  console.log( 'page:' , getPage)
+    loadNews()
   }
 
     useEffect(()=>{
-      initNews();
+      setWaiting(true)
+      loadNews();
     
     })
 
   return (
 
     <FlatList
-        ListHeaderComponent={<Button
-                                    title='Init News'
-                                    onPress={initNews}
-                                    />}
-
-        ListEmptyComponent={<Text>Pas d'actu</Text>}/* Affiche le texte si la Flatlist est vide */
         data={getNews}
         renderItem={({item})=><ItemNews item={item}/>}
-        keyExtractor={item=>item.id}
+        keyExtractor={(item, index) => 'key'+index}
+
+        ListHeaderComponent={<Button
+                                    title='Next'
+                                    onPress={nextPage}
+                                    />}
+
+        ListEmptyComponent={<RenderEmptyComponent waiting={waiting}/>}/* Affiche le texte si la Flatlist est vide */
+        ListFooterComponent={(waiting && getNews.length > 0 ) && <ActivityIndicator/>} /* Si 'waiting' et 'getNews.length' different de '0' charger plus'   */
+        
             />
   )
 }
