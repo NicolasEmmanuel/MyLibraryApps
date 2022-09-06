@@ -1,10 +1,20 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useReducer } from 'react'
+import { useSelector } from 'react-redux'
+
 
 const Insta = () => {
+
+  const {login} = useSelector(state => state)
+
   return (
     <View>
-      <Text>Insta</Text>
+
+{/* "login?" :   IF login = true-> alors affiché "est connecté"
+                 ELSE login = false-> affiché "N'est pas connecté"  */}
+            { login? <Text>Est connecté</Text> :
+                      <Text>N'est pas connecté </Text> }
+
     </View>
   )
 }
