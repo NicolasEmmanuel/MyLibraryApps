@@ -1,4 +1,4 @@
-import { ADD_CATEGORIE, EDIT_LOGIN,  EDIT_NUM } from "./type";
+import { ADD_ARTICLE, ADD_CATEGORIE, EDIT_LOGIN,  EDIT_NUM } from "./type";
 
 
 export const editLogin = (login) => ({
@@ -17,4 +17,9 @@ export const addCategorie = (categorie) => ({
 
         type : ADD_CATEGORIE,
         payload : categorie,
+})
+export const addArticle = (article) => ({
+
+        type : ADD_ARTICLE,
+        payload : article,
 })

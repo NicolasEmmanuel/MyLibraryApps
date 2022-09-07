@@ -1,14 +1,13 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 
-const data = [{id:1, nom:"Sofa"},
-              {id:2, nom:"Table"},
-              {id:3, nom:"Table basse"},
-              {id:4, nom:"Chaise"},
-            ] 
 
 const RenderCategorie = ({categorie}) =>{
+  
+   useSelector(state=>state)
+
     return(
         <TouchableOpacity style={styles.touchCategorie}>
             <Text style={styles.textCategorie}>{categorie.nom}</Text>
@@ -17,12 +16,17 @@ const RenderCategorie = ({categorie}) =>{
 }
 
 const Categories = () => {
+
+  const {dataCategorie} = useSelector(state=>state);
+
+  console.log("reducer : " ,dataCategorie )
+
   return (
     <View style={styles.content}>
       <Text style={styles.title}>Categories</Text>
 
     <FlatList
-            data={data}
+            data={dataCategorie}
             horizontal={true}
             renderItem={({item})=><RenderCategorie 
             categorie ={item} />}

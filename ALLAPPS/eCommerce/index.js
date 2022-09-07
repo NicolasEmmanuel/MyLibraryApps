@@ -1,54 +1,94 @@
-import React , {useContext, useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
+import {NavigationContainer, StackActions} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-/* Creation d'une bottomNavigation */
+/* Importation des screen pour la création d'une bottomNavigation. */
 import Home from './Screen/Home';
 import Setting from './Screen/Setting';
+import DetailArticle from './Screen/DetailArticle';
 
-import {FirebaseContext} from '../../firebaseContext'
+import {FirebaseContext} from '../../firebaseContext';
+
+import {useDispatch} from 'react-redux';
+
+import {addCategorie} from '../../redux/action';
+import {addArticle} from '../../redux/action';
 
 /* Creation d'une bottomNavigation */
 const Tab = createBottomTabNavigator();
 
+    //Navigation entre les vues.
+    const stack = createNativeStackNavigator();
+          const Acceuil = () =>{
+            return(
+              <stack.Navigator>
+                  <stack.Screen name = 'Acceuil' component = {Home} />
+                  <stack.Screen name = 'DetailArticle' component = {DetailArticle} />
+              </stack.Navigator>
+            )
+          }
+ 
 
-const App = () =>{
+const App = () => {
+    //useDispatch:envoie des actions redux.
+    const dispatch = useDispatch();
 
- const firebase = useContext(FirebaseContext)
-console.log(firebase)
+    //useContext : Accepte un objet contexte, et renvoie la valeur actuelle du contexte. Celle-ci est déterminée par la prop value du plus proche.
+    const firebase = useContext(FirebaseContext);
 
+  //Initialisation des Catégorie.
+  const initCategories = async () => {
+    const categories = await firebase.getCategories();
+      console.log(categories.empty);
 
+        if (!categories.empty) {
+          console.log('pas vide');
 
- const initCategories = async () => {
+          categories.forEach(categorieData => {
+            const tempCategorie = {id: categorieData.id,...categorieData.data(), //autre écriture = " nom : categorieData.data().nom "
+            };
 
-
-  const categories = await firebase.getCategories() 
-
-  if (!categories.empty){
-    console.log("pas vide")
-
-    categories.foreach( categorieData =>{
-      console.log("first" , categorieData.data())
-    })
-  }
-
-
- }
-
- useEffect(()=>{
-  initCategories()
- },[])
-
-  return (
-
-/* Creation d'une bottomNavigation */
-      <Tab.Navigator screenOptions={{headerShown:false}}>
-          <Tab.Screen name="Acceuil" component={Home} />
-          <Tab.Screen name="Compte" component={Setting} />
-      </Tab.Navigator>
-    
-  );
+          console.log('first', tempCategorie);
+        dispatch(addCategorie(tempCategorie));
+      });
 }
+  };
 
-export default App ;
+//Initialisation des Articles.
+  const initArticles = async () => {
+    const articles = await firebase.getArticles();
+      console.log(articles.empty);
+
+        if (!articles.empty) {
+          console.log('pas vide');
+
+          articles.forEach(articleData => {
+            const tempArticle = {id: articleData.id,...articleData.data(), //autre écriture = " nom : categorieData.data().nom "
+            };
+
+         console.log('first', tempArticle);
+        dispatch(addArticle(tempArticle));
+      });
+    }
+  };
+
+  //useEffect :Accepte une fonction qui contient du code impératif, pouvant éventuellement produire des effets.
+  useEffect(() => {
+      initCategories();
+      initArticles();
+    }, []);
+
+  
+  return (
+    /* Creation d'une bottomNavigation */
+    <Tab.Navigator screenOptions={{headerShown: false}}>
+
+        <Tab.Screen name="Home" component={Acceuil} />
+        <Tab.Screen name="Compte" component={Setting} />
+
+    </Tab.Navigator>
+  );
+};
+
+export default App;

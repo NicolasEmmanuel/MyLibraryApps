@@ -19,6 +19,7 @@ import TutoFireList from './ALLAPPS/TutoFireList';
 import store from './redux/store';
 import { Provider } from 'react-redux'
 
+//Ecommerce
 import Ecommerce from './ALLAPPS/eCommerce';
 
 import auth from '@react-native-firebase/auth';
@@ -69,8 +70,6 @@ const App = () => {
                   <Stack.Screen name="AppEcommerce"
                                 options={{headerShown:false}} 
                                 component={Ecommerce} />
-
-
 
                 </Stack.Navigator>
               </NavigationContainer>
