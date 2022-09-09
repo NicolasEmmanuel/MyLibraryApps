@@ -17,9 +17,8 @@ const RenderCategorie = ({categorie}) =>{
 
 const Categories = () => {
 
-  const {dataCategorie} = useSelector(state=>state);
-
-  console.log("reducer : " ,dataCategorie )
+        const {dataCategorie} = useSelector(state=>state);
+                console.log("reducer : " ,dataCategorie )
 
   return (
     <View style={styles.content}>
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
     },
 
     touchCategorie:{
-       backgroundColor:'red',
+       backgroundColor:'#fbe9d3',
        margin:10,
        padding:10,
        borderRadius:10,
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
 
     textCategorie:{
         fontSize:18,
-        color:'#fff',
+        color:'#d19e78',
         fontWeight:'500',
     },
 })

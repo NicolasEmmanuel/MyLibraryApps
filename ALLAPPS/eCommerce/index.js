@@ -7,6 +7,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './Screen/Home';
 import Setting from './Screen/Setting';
 import DetailArticle from './Screen/DetailArticle';
+import Panier from './Screen/Panier';
+
 
 import {FirebaseContext} from '../../firebaseContext';
 
@@ -14,6 +16,7 @@ import {useDispatch} from 'react-redux';
 
 import {addCategorie} from '../../redux/action';
 import {addArticle} from '../../redux/action';
+
 
 /* Creation d'une bottomNavigation */
 const Tab = createBottomTabNavigator();
@@ -31,6 +34,7 @@ const Tab = createBottomTabNavigator();
  
 
 const App = () => {
+  
     //useDispatch:envoie des actions redux.
     const dispatch = useDispatch();
 
@@ -73,6 +77,7 @@ const App = () => {
     }
   };
 
+
   //useEffect :Accepte une fonction qui contient du code impératif, pouvant éventuellement produire des effets.
   useEffect(() => {
       initCategories();
@@ -85,7 +90,9 @@ const App = () => {
     <Tab.Navigator screenOptions={{headerShown: false}}>
 
         <Tab.Screen name="Home" component={Acceuil} />
+        <Tab.Screen name="Panier" component={Panier} />
         <Tab.Screen name="Compte" component={Setting} />
+       
 
     </Tab.Navigator>
   );

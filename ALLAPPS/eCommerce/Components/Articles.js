@@ -1,7 +1,8 @@
-import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, FlatList, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
+
 
 const RenderArticle = ({article}) => {
   //navigation DetailArticle
@@ -11,11 +12,18 @@ const RenderArticle = ({article}) => {
     navigation.navigate('DetailArticle', {id: article.id});
   };
 
+  //Pour récupérer les données nécessaires à l’affichage
   useSelector(state => state);
 
   return (
     <TouchableOpacity onPress={onPressArticle} style={styles.touchArticle}>
-      <Text style={styles.textArticle}>{article.nom}</Text>
+
+                        <Text style={styles.nomArticle}>{article.nom}</Text>
+                        <Image
+                            style={styles.imageArticle} 
+                            source={{uri:article.image}}
+                        />
+                        <Text style={styles.prixArticle}>{article.prix}€</Text>
     </TouchableOpacity>
   );
 };
@@ -54,7 +62,7 @@ const styles = StyleSheet.create({
   },
 
   touchArticle: {
-    backgroundColor: 'red',
+    backgroundColor: '#fbe9d3',
     margin: 10,
     padding: 10,
     borderRadius: 10,
@@ -62,9 +70,24 @@ const styles = StyleSheet.create({
     width: 180,
   },
 
-  textArticle: {
+  nomArticle: {
     fontSize: 18,
-    color: '#fff',
+    color: '#d19e78',
     fontWeight: '500',
+    marginBottom:5,
   },
+
+  prixArticle: {
+    fontSize: 18,
+    color: '#d19e78',
+    fontWeight: '500',
+    marginTop:5,
+  },
+
+  imageArticle: {
+    width: 155,
+    height: 120,
+  },
+
+
 });

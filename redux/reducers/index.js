@@ -1,6 +1,13 @@
 import { combineReducers } from "redux" ;
+
 import login from "./login" ;
 import number from "./number" ;
 import dataCategorie from "./dataCategorie"
 import dataArticle from "./dataArticle";
-export default combineReducers({login , number, dataCategorie, dataArticle}) ;
+import dataPanier from "./dataPanier";
+
+export default combineReducers({login, 
+                                number, 
+                                dataCategorie, 
+                                dataArticle, 
+                                dataPanier }) ;
