@@ -6,7 +6,7 @@ import Articles from '../Components/Articles';
 const Home = () => {
   return (
     <View style={styles.content}>
-      <Categories />
+      <Categories style={styles.categorieTitle}/>
       <Articles />
     </View>
   );
@@ -17,7 +17,11 @@ export default Home;
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    //backgroundColor:'red',
+    backgroundColor:'#f6f4f1',
     margin: 10,
   },
+
+  
+
+
 });

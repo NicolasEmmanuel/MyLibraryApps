@@ -43,7 +43,7 @@ export default Categories
 const styles = StyleSheet.create({
     content:{
         width:'100%',
-        //backgroundColor:'blue',
+        
         height:150,
     },
 
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     },
 
     touchCategorie:{
-       backgroundColor:'#fbe9d3',
+       backgroundColor:'#d19e78',
        margin:10,
        padding:10,
        borderRadius:10,
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
     textCategorie:{
         fontSize:18,
-        color:'#d19e78',
+        color:'#fbe9d3',
         fontWeight:'500',
     },
 })

@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
 
   touchArticle: {
-    backgroundColor: '#fbe9d3',
+    backgroundColor: '#d19e78',
     margin: 10,
     padding: 10,
     borderRadius: 10,
@@ -72,14 +72,14 @@ const styles = StyleSheet.create({
 
   nomArticle: {
     fontSize: 18,
-    color: '#d19e78',
+    color: '#fbe9d3',
     fontWeight: '500',
     marginBottom:5,
   },
 
   prixArticle: {
     fontSize: 18,
-    color: '#d19e78',
+    color: '#fbe9d3',
     fontWeight: '500',
     marginTop:5,
   },
