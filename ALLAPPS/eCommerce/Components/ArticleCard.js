@@ -1,7 +1,9 @@
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
+import { Button } from "@rneui/themed";
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addPanier } from '../../../redux/action'
+import { styles } from '../theme/ecommerce/styles';
 
 const ArticleCard = ({article}) => {
 
@@ -16,12 +18,34 @@ const ArticleCard = ({article}) => {
   }
 
   return (
-    <View>
-      <Text>{article.nom} </Text>
+    <View style={styles.viewArticle}>
+
+          <View style={styles.textDetailView}>
+
+              <Text style={styles.detailNom}>{article.nom} </Text>
+              <Text style={styles.detailPrix}>{article.prix} €</Text>
+              
+          </View>
+
+          
+
+        <Image
+              style={styles.detailImage} 
+              source={{uri:article.image}}
+          /> 
+      
+      <Text>{article.description}</Text>
+      
+      
 
       <Button
         title="Ajouter au panier"
-        onPress={ajouter} 
+        onPress={ajouter}
+
+        containerStyle={{
+          width: 200,
+          marginHorizontal: 50,
+          marginVertical: 10, }}
       />
 
     </View>
@@ -30,4 +54,3 @@ const ArticleCard = ({article}) => {
 
 export default ArticleCard
 
-const styles = StyleSheet.create({})

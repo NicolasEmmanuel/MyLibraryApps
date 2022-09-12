@@ -25,7 +25,7 @@ const Tab = createBottomTabNavigator();
     const stack = createNativeStackNavigator();
           const Acceuil = () =>{
             return(
-              <stack.Navigator>
+              <stack.Navigator screenOptions={{headerShown: false}}>
                   <stack.Screen name = 'Acceuil' component = {Home} />
                   <stack.Screen name = 'DetailArticle' component = {DetailArticle} />
               </stack.Navigator>

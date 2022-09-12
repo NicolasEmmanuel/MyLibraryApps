@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { styles } from '../theme/ecommerce/styles'
 
 
 
@@ -21,8 +22,8 @@ const Categories = () => {
                 console.log("reducer : " ,dataCategorie )
 
   return (
-    <View style={styles.content}>
-      <Text style={styles.title}>Categories</Text>
+    <View style={styles.categorieContent}>
+      <Text style={styles.categorieTitle}>Categories</Text>
 
     <FlatList
             data={dataCategorie}
@@ -40,31 +41,3 @@ const Categories = () => {
 
 export default Categories
 
-const styles = StyleSheet.create({
-    content:{
-        width:'100%',
-        
-        height:150,
-    },
-
-    title:{
-        fontSize:25,
-        //color:'white',
-        fontWeight:'600',
-    },
-
-    touchCategorie:{
-       backgroundColor:'#d19e78',
-       margin:10,
-       padding:10,
-       borderRadius:10,
-       height:45,
-       width:120,
-    },
-
-    textCategorie:{
-        fontSize:18,
-        color:'#fbe9d3',
-        fontWeight:'500',
-    },
-})

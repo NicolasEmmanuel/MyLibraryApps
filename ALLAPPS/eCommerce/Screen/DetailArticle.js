@@ -43,7 +43,7 @@ const DetailArticle = ({route}) => {
 
   return (
     //Code de vérication du "loading".
-    <View>
+    <View >
           {  loading == true ? <ActivityIndicator/> //Si "loading" = true "?alors" afficher "ActivityActivator"
             : article == null ?  <NoArticle/> //':Sinon' article est égal à "null" "?alors" charger la const "NoArticle"
             :   <ArticleCard article={article}/> 
