@@ -134,4 +134,17 @@ export const styles = StyleSheet.create({
       },
 
      //******* End detail Article ********* */
+//*//
+     //******* Start Inscription ********* */
+
+     textInscription:{
+        fontSize:20,
+        margin:20,
+        color:colors.textPrimary,
+     },
+
+
+     //******* End Inscription ********* */
+
+
 })

@@ -12,11 +12,12 @@ import Panier from './Screen/Panier';
 
 
 import {FirebaseContext} from '../../firebaseContext';
+import auth from '@react-native-firebase/auth';
 
 import {useDispatch} from 'react-redux';
 
-import {addCategorie} from '../../redux/action';
-import {addArticle} from '../../redux/action';
+import {addCategorie, addArticle , editUser} from '../../redux/action';
+
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 
@@ -79,11 +80,20 @@ const App = () => {
     }
   };
 
+const authStateChanged = (user) =>{
+
+  console.log('authStateChanged user' , user)
+  dispatch(editUser(user))
+}
 
   //useEffect :Accepte une fonction qui contient du code impératif, pouvant éventuellement produire des effets.
   useEffect(() => {
       initCategories();
       initArticles();
+
+      const subscriber = auth().onAuthStateChanged(authStateChanged);
+            return subscriber; // unsubscribe on unmount
+
     }, []);
 
   
@@ -94,6 +104,7 @@ const App = () => {
         <Tab.Screen name="Home" 
                     component={Acceuil} 
                     options={{
+
                       tabBarIcon: () => (
                        <MaterialIcon
                               name='home'
