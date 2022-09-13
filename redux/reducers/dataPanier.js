@@ -1,4 +1,4 @@
-import { ADD_PANIER, REMOVE_PANIER, REMOVE_ONE_PANIER } from "../type";
+import { ADD_PANIER, REMOVE_PANIER, } from "../type";
 import { existItem } from "../../common/fonctions";
 
 

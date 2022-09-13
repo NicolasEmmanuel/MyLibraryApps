@@ -3,6 +3,7 @@ import React, {useState, useContext, useEffect} from 'react';
 import {FirebaseContext} from '../../../firebaseContext';
 import {loadOptions} from '@babel/core';
 import ArticleCard from '../Components/ArticleCard';
+import { styles } from '../theme/ecommerce/styles';
 
 //Requête Si "pas d'article".
 const NoArticle = () => {
@@ -43,7 +44,7 @@ const DetailArticle = ({route}) => {
 
   return (
     //Code de vérication du "loading".
-    <View >
+    <View style={styles.viewDetailGlobal}>
           {  loading == true ? <ActivityIndicator/> //Si "loading" = true "?alors" afficher "ActivityActivator"
             : article == null ?  <NoArticle/> //':Sinon' article est égal à "null" "?alors" charger la const "NoArticle"
             :   <ArticleCard article={article}/> 
@@ -55,4 +56,4 @@ const DetailArticle = ({route}) => {
 
 export default DetailArticle;
 
-const styles = StyleSheet.create({});
+

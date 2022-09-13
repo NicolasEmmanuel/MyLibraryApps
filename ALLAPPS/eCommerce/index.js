@@ -3,6 +3,7 @@ import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
 /* Importation des screen pour la création d'une bottomNavigation. */
 import Home from './Screen/Home';
 import Setting from './Screen/Setting';
@@ -16,6 +17,7 @@ import {useDispatch} from 'react-redux';
 
 import {addCategorie} from '../../redux/action';
 import {addArticle} from '../../redux/action';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 
 /* Creation d'une bottomNavigation */
@@ -89,7 +91,18 @@ const App = () => {
     /* Creation d'une bottomNavigation */
     <Tab.Navigator screenOptions={{headerShown: false}}>
 
-        <Tab.Screen name="Home" component={Acceuil} />
+        <Tab.Screen name="Home" 
+                    component={Acceuil} 
+                    options={{
+                      tabBarIcon: () => (
+                       <MaterialIcon
+                              name='home'
+                              size={19}
+                       />
+                      ),
+                    }}
+        />
+
         <Tab.Screen name="Panier" component={Panier} />
         <Tab.Screen name="Compte" component={Setting} />
        

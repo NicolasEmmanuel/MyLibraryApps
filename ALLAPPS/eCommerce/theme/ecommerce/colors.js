@@ -1,3 +1,5 @@
+//colors.js va gerer les couleurs principales de l'application
+
 export const colors={
     BGprimary:'#fff',
     BGsecondary:'#fbe9d3',

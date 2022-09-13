@@ -1,3 +1,5 @@
+//styles.js permet de creer une page css qui va gerer tout le style de l'application.
+
 import { StyleSheet } from "react-native";
 import { colors } from './colors'
 
@@ -27,7 +29,7 @@ export const styles = StyleSheet.create({
        backgroundColor:colors.BGsecondary,
        margin:10,
        padding:10,
-       borderRadius:10,
+       borderRadius:20,
        height:45,
        width:120,
     },
@@ -36,6 +38,7 @@ export const styles = StyleSheet.create({
         fontSize:18,
         color:colors.textPrimary,
         fontWeight:'500',
+        alignSelf:'center', 
     },
 
     //******* Ends Catégorie ********* */
@@ -60,7 +63,7 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         color:colors.textPrimary,
         fontWeight: '500',
-        margin:5,
+        margin:10,
         marginBottom:5,
     },
 
@@ -68,7 +71,7 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         color:colors.textPrimary,
         fontWeight: '500',
-        margin:5,
+        margin:10,
         marginTop:5,
     },
 
@@ -83,8 +86,15 @@ export const styles = StyleSheet.create({
 //*//
      //******* Start detail Article ********* */
 
+     //DetailArticle
+     viewDetailGlobal:{
+        flex:1,
+        backgroundColor:colors.BGprimary,
+      },
+
      viewArticle:{
         margin:10,
+        padding:10,
         justifyContent:'center', 
       },
 
@@ -98,7 +108,7 @@ export const styles = StyleSheet.create({
     
       detailNom:{
         fontSize:30,
-        color:colors.BGsecondary,
+        color:colors.textPrimary,
       },
     
       detailPrix:{
@@ -107,10 +117,20 @@ export const styles = StyleSheet.create({
         color:'#457b9d',
       },
 
+    
+
       detailImage:{
-        height:200,
-        width:200,
-        
+        height:300,
+        width:350,
+        borderRadius:10,
+        alignSelf:'center',
+        marginTop:10,
+        marginBottom:20,
+      },
+
+      detailDescription:{
+        paddingLeft:40,
+        marginBottom:10,
       },
 
      //******* End detail Article ********* */

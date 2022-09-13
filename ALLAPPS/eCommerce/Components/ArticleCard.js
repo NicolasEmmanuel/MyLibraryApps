@@ -24,17 +24,19 @@ const ArticleCard = ({article}) => {
 
               <Text style={styles.detailNom}>{article.nom} </Text>
               <Text style={styles.detailPrix}>{article.prix} €</Text>
-              
+
           </View>
 
           
-
+    <View style={styles.imageContener} >
         <Image
               style={styles.detailImage} 
               source={{uri:article.image}}
-          /> 
+              /> 
+    </View>
+        
       
-      <Text>{article.description}</Text>
+      <Text style={styles.detailDescription}>{article.description}</Text>
       
       
 
@@ -42,10 +44,15 @@ const ArticleCard = ({article}) => {
         title="Ajouter au panier"
         onPress={ajouter}
 
+        buttonStyle={{ backgroundColor: 'rgba( 222, 184, 135, 1 )' }}
+
         containerStyle={{
-          width: 200,
-          marginHorizontal: 50,
-          marginVertical: 10, }}
+                  width: 200,
+                  marginHorizontal: 50,
+                  marginVertical: 10,
+                  borderRadius:10,
+                  alignSelf:'center', 
+        }}
       />
 
     </View>

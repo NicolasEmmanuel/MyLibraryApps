@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, FlatList, Image, Button } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, } from 'react-native'
+import { Button } from "@rneui/themed";
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { removePanier, removeOnePanier } from '../../../redux/action'
@@ -15,18 +16,36 @@ const PanierItem = ({item}) => {
 
   return(
     <View style={styles.contentPanier}>
-        <Text style={styles.nom} >{item.nom}</Text>
+
+        <View style={styles.cardPanier}>
+            <Text style={styles.nomPanier} >{item.nom}</Text>
+            <Text style={styles.prixPanier}>{item.prix} €</Text>
+
             <Image
                   style={styles.image} 
                   source={{uri:item.image}}
             />
 
-          <Text style={styles.prix}>{item.prix} €</Text>
+        </View>
+
+        
+
+          
 
           <Button
                 styles={styles.removeOne}
                 onPress={removeOne}
                 title='Supprimer'
+
+                buttonStyle={{ backgroundColor: 'rgba( 222, 184, 135, 1 )' }}
+
+                containerStyle={{
+                  width: 200,
+                  marginHorizontal: 50,
+                  marginVertical: 10,
+                  borderRadius:10,
+                  alignSelf:'center', 
+        }}
           />
     </View>
   )
@@ -59,6 +78,16 @@ const remove =() =>{
        <Button
             title="Vider"
             onPress={remove}
+
+            buttonStyle={{ backgroundColor: 'rgba( 222, 184, 135, 1 )' }}
+
+            containerStyle={{
+                  width: 200,
+                  marginHorizontal: 50,
+                  marginVertical: 10,
+                  borderRadius:10,
+                  alignSelf:'center', 
+        }}
         />
 
 
@@ -72,11 +101,15 @@ const styles = StyleSheet.create({
 
   contentPanier:{
     width:'100%',
-    height:200,
-    backgroundColor:'red',
+    height:400,
+    backgroundColor:'#fff',
     padding:5,
     margin:5,
-    borderRadius:10,
+    flexDirection:'row',
+  },
+
+  cardPanier:{
+    
   },
 
   image:{
