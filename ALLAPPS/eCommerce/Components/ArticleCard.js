@@ -28,32 +28,31 @@ const ArticleCard = ({article}) => {
           </View>
 
           
-    <View style={styles.imageContener} >
-        <Image
-              style={styles.detailImage} 
-              source={{uri:article.image}}
-              /> 
-    </View>
+          <View style={styles.imageContener} >
+
+              <Image
+                    style={styles.detailImage} 
+                    source={{uri:article.image}}
+                    /> 
+          </View>
         
       
-      <Text style={styles.detailDescription}>{article.description}</Text>
+          <Text style={styles.detailDescription}>{article.description}</Text>
       
-      
+          <Button
+            title="Ajouter au panier"
+            onPress={ajouter}
 
-      <Button
-        title="Ajouter au panier"
-        onPress={ajouter}
+            buttonStyle={{ backgroundColor: 'rgba( 222, 184, 135, 1 )' }}
 
-        buttonStyle={{ backgroundColor: 'rgba( 222, 184, 135, 1 )' }}
-
-        containerStyle={{
-                  width: 200,
-                  marginHorizontal: 50,
-                  marginVertical: 10,
-                  borderRadius:10,
-                  alignSelf:'center', 
-        }}
-      />
+            containerStyle={{
+                      width: 200,
+                      marginHorizontal: 50,
+                      marginVertical: 10,
+                      borderRadius:10,
+                      alignSelf:'center', 
+                            }}
+          />
 
     </View>
   )

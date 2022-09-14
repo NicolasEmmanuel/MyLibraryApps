@@ -21,19 +21,19 @@ const Inscription = () => {
 
   const navigation = useNavigation()
 
-  //Création de la variable pour afficher ou sécuriser le mot de passe 
-  const [eyeClose, seteyeClose] = useState(false)
+        //Création de la variable pour afficher ou sécuriser le mot de passe 
+        const [eyeClose, seteyeClose] = useState(false)
 
-  //Sauvegarde l'adresse email et le mot de passe pour les mettre dans une variable.
-  const [email, setEmail] = useState()
-  const [motDePasse, setMotDePasse] = useState()
+        //Sauvegarde l'adresse email et le mot de passe pour les mettre dans une variable.
+        const [email, setEmail] = useState()
+        const [motDePasse, setMotDePasse] = useState()
 
-  const firebase = useContext(Firebase)
+        const firebase = useContext(Firebase)
 
-  //Création de la navigation vers "Inscription"
-  const returnToConnexion = () =>{
-    navigation.navigate("Connexion")
-  }
+        //Création de la navigation vers "Inscription"
+        const returnToConnexion = () =>{
+          navigation.navigate("Connexion")
+        }
 
 
   const save = () => {
@@ -87,31 +87,39 @@ const Inscription = () => {
       }
     />
 
-      <Button 
-          title="je m'inscris" 
-          type="clear"
-          titleStyle={{ color: 'rgba( 222, 184, 135, 1 )' }}
-          onPress={save}
+    <View>
 
-          
-        />
+          <Button 
+              title="je m'inscris" 
+              type="clear"
+              onPress={save}
 
-      <Button 
-          title="Je me connecte" 
-          type="solid"
-          onPress={returnToConnexion}
-          
-          buttonStyle={{ backgroundColor: 'rgba( 222, 184, 135, 1 )' }}
+              containerStyle={{
+                marginTop:20,
+                marginBottom:20,
+            }} 
+            />
 
-          containerStyle={{
-              width: 200,
-              marginHorizontal: 50,
-              marginVertical: 10,
-              borderRadius:10,
-              alignSelf:'center',
-          }} 
-        />
+          <Button 
+              title="Je me connecte" 
+              type="solid"
+              onPress={returnToConnexion}
+              
+              buttonStyle={{ backgroundColor: 'rgba( 222, 184, 135, 1 )' }}
 
+              containerStyle={{
+                  width: 200,
+                  marginHorizontal: 50,
+                  marginVertical: 10,
+                  borderRadius:10,
+                  alignSelf:'center',
+              }} 
+            />
+
+
+    </View>
+
+      
 
     </View>
   )

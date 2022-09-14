@@ -3,6 +3,7 @@ import { Button } from "@rneui/themed";
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { removePanier, removeOnePanier } from '../../../redux/action'
+import { styles } from '../theme/ecommerce/styles';
 
 
 const PanierItem = ({item}) => {
@@ -17,36 +18,34 @@ const PanierItem = ({item}) => {
   return(
     <View style={styles.contentPanier}>
 
-        <View style={styles.cardPanier}>
-            <Text style={styles.nomPanier} >{item.nom}</Text>
-            <Text style={styles.prixPanier}>{item.prix} €</Text>
+          <Image
+                style={styles.imagePanier} 
+                source={{uri:item.image}}
+          />
 
-            <Image
-                  style={styles.image} 
-                  source={{uri:item.image}}
-            />
+          <View style={styles.cardPanier}>
+              <Text style={styles.nomPanier} >{item.nom}</Text>
+              <Text style={styles.prixPanier}>{item.prix} €</Text>
 
-        </View>
-
-        
-
-          
-
-          <Button
+              <Button
                 styles={styles.removeOne}
                 onPress={removeOne}
                 title='Supprimer'
 
-                buttonStyle={{ backgroundColor: 'rgba( 222, 184, 135, 1 )' }}
+                    buttonStyle={{ backgroundColor: 'rgb(221,184,146)' }}
 
-                containerStyle={{
-                  width: 200,
-                  marginHorizontal: 50,
-                  marginVertical: 10,
-                  borderRadius:10,
-                  alignSelf:'center', 
-        }}
-          />
+                    containerStyle={{
+                              width: 100,
+                              marginHorizontal: 170,
+                              marginVertical:20,
+                             
+                              borderRadius:10,
+                              alignSelf:'center', 
+                                     }}
+                />
+
+          </View>
+              
     </View>
   )
 }
@@ -76,10 +75,10 @@ const remove =() =>{
       />
 
        <Button
-            title="Vider"
+            title="Vider le panier"
             onPress={remove}
 
-            buttonStyle={{ backgroundColor: 'rgba( 222, 184, 135, 1 )' }}
+            buttonStyle={{ backgroundColor: 'rgb(156,102,68)' }}
 
             containerStyle={{
                   width: 200,
@@ -97,23 +96,3 @@ const remove =() =>{
 
 export default Panier
 
-const styles = StyleSheet.create({
-
-  contentPanier:{
-    width:'100%',
-    height:400,
-    backgroundColor:'#fff',
-    padding:5,
-    margin:5,
-    flexDirection:'row',
-  },
-
-  cardPanier:{
-    
-  },
-
-  image:{
-    height:100,
-    width:100,
-  }
-})

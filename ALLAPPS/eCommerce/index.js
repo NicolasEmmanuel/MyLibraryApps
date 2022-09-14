@@ -19,6 +19,7 @@ import {useDispatch} from 'react-redux';
 import {addCategorie, addArticle , editUser} from '../../redux/action';
 
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
+import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons'
 
 
 /* Creation d'une bottomNavigation */
@@ -114,8 +115,32 @@ const authStateChanged = (user) =>{
                     }}
         />
 
-        <Tab.Screen name="Panier" component={Panier} />
-        <Tab.Screen name="Compte" component={Setting} />
+        <Tab.Screen name="Panier" 
+                    component={Panier} 
+                    options={{
+
+                      tabBarIcon: () => (
+                       <SimpleLineIcon
+                              name='basket'
+                              size={19}
+                       />
+                      ),
+                    }}
+          />
+
+        <Tab.Screen name="Compte" 
+                    component={Setting} 
+                    options={{
+
+                      tabBarIcon: () => (
+                       <MaterialIcon
+                              name='account-circle'
+                              size={19}
+                       />
+                      ),
+                    }}
+          />
+                  
        
 
     </Tab.Navigator>

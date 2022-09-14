@@ -86,7 +86,6 @@ export const styles = StyleSheet.create({
 //*//
      //******* Start detail Article ********* */
 
-     //DetailArticle
      viewDetailGlobal:{
         flex:1,
         backgroundColor:colors.BGprimary,
@@ -117,8 +116,6 @@ export const styles = StyleSheet.create({
         color:'#457b9d',
       },
 
-    
-
       detailImage:{
         height:300,
         width:350,
@@ -134,17 +131,73 @@ export const styles = StyleSheet.create({
       },
 
      //******* End detail Article ********* */
+
+//*//
+     //******* Start Panier ********* */
+
+     contentPanier:{
+      width:'100%',
+      height:150,
+      backgroundColor:'#fff',
+      padding:5,
+      margin:5,
+      flexDirection:'row',
+    },
+  
+    imagePanier:{
+      marginTop:10,
+      marginLeft:10,
+      height:100,
+      width:100,
+    },
+  
+    cardPanier:{
+      marginTop:10,
+      marginLeft:10,
+    },
+  
+    nomPanier:{
+      fontSize:20,
+      color:'#83c5be',
+      marginBottom:5,
+    },
+  
+    prixPanier:{
+      fontSize:20,
+      color:'#83c5be',
+    },
+    
+     //******* End Panier ********* */
 //*//
      //******* Start Inscription ********* */
 
      textInscription:{
         fontSize:20,
-        margin:20,
+        alignSelf:"center",
+        marginTop:20,
+        marginBottom:20,
         color:colors.textPrimary,
+   },
+
+
+   //******* End Inscription ********* */
+//*//
+     //******* Start Connexion ********* */
+
+     connexionTitle:{
+        fontSize:20,
+        alignSelf:"center",
+        color:colors.textPrimary,
+        marginTop:20,
+        marginBottom:20,
      },
 
+     connexionTxt:{
+        alignSelf:'center',
+        fontSize:20,
+        marginTop:50,
+     },
 
-     //******* End Inscription ********* */
-
+     //******* End Connexion ********* */
 
 })
