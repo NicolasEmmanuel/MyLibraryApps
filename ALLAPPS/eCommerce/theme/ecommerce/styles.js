@@ -136,6 +136,7 @@ export const styles = StyleSheet.create({
      //******* Start Panier ********* */
 
      contentPanier:{
+      flex:1,
       width:'100%',
       height:150,
       backgroundColor:'#fff',
@@ -165,6 +166,10 @@ export const styles = StyleSheet.create({
     prixPanier:{
       fontSize:20,
       color:'#83c5be',
+    },
+
+    bottomViewPanier:{
+     
     },
     
      //******* End Panier ********* */
