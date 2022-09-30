@@ -11,7 +11,7 @@ const Setting = () => {
 
 
   return (
-    dataUser?<Private/>:<Public/> //Si dataUser
+    dataUser?<Private/>:<Public/> 
   )
 }
 

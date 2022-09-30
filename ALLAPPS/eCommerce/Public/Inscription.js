@@ -39,12 +39,13 @@ const Inscription = () => {
   const save = () => {
     console.log("Save email et mdp", email , motDePasse)
 
-              auth()
+           auth()
                 .createUserWithEmailAndPassword(email, motDePasse)
                 .then(() => {
                   console.log('User account created & signed in!');
-              })
-                .catch("error firebase auth" , error => {
+              }).catch( error => {
+
+                
 
               });
   }

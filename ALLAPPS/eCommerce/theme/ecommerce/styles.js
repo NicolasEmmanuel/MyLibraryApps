@@ -204,5 +204,17 @@ export const styles = StyleSheet.create({
      },
 
      //******* End Connexion ********* */
+//*//
+     //******* Start PanierItem ********* */
+
+     nomItemPanier:{
+      color:colors.textPrimary,
+     },
+
+     prixItemPanier:{
+      color:'#457b9d',
+     },
+
+     //******* End PanierItem ********* */
 
 })

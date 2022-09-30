@@ -3,6 +3,8 @@ import React from 'react'
 import { Button } from "@rneui/themed";
 import auth from '@react-native-firebase/auth';
 
+import Commande from '../Components/commande';
+
 const index = () => {
 
 
@@ -14,10 +16,14 @@ const index = () => {
           title="Déconnexion" 
           type="clear"
           onPress={()=>
-             auth()
-            .signOut()
-            .then(() => console.log('User signed out!'))}
+                  auth()
+                .signOut()
+                .then(() => console.log('User signed out!'))}
          />
+
+         <Commande/>
+
+         
     </View>
   )
 }

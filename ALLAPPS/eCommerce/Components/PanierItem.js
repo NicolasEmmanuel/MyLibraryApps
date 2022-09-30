@@ -5,6 +5,7 @@ import { Button, ListItem, Avatar } from "@rneui/themed";
 
 import {  useDispatch } from 'react-redux'
 import {  removeOnePanier } from '../../../redux/action'
+import { styles } from '../theme/ecommerce/styles';
 
 const PanierItem = ({item}) => {
 
@@ -16,20 +17,23 @@ const PanierItem = ({item}) => {
     }
 
   return (
-        <ListItem.Swipeable
-            
+        <ListItem.Swipeable    
             rightContent={(removeOne) => (
                 <Button
                     title="Delete"               
                     onPress={() => removeOne()}
                     icon={{ name: 'delete', color: 'white' }}
                     buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
-                    />
+                />
             )}
         >
-        <Avatar title={item.nom[0]} source={{ uri: item.image }} />
+
+        {/* Item card panier */}
+        <Avatar size={100} title={item.nom[0]} source={{ uri: item.image }} />
         <ListItem.Content>
-            <ListItem.Title>{item.nom}</ListItem.Title>
+            <ListItem.Title style={styles.nomItemPanier}>{item.nom}</ListItem.Title>
+            <ListItem.Subtitle style={styles.prixItemPanier}>{item.prix} €</ListItem.Subtitle>
+            <ListItem.Subtitle style={styles.quantiteItemPanier}>quantite : {item.quantite}</ListItem.Subtitle>
         </ListItem.Content>
 
         <ListItem.Chevron />
@@ -40,4 +44,3 @@ const PanierItem = ({item}) => {
 
 export default PanierItem
 
-const styles = StyleSheet.create({})
